@@ -3,9 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            @keyframes slider {
+                0%, 33% {
+                    background-image: url(./img/Entrada.jpeg);
+                    --text-description: "Momento da Entrada no Curso";
+                }
+                34%, 66% {
+                    background-image: url(./img/Patio.jpeg);
+                    --text-description: "Momento de Lazer/Descanso";
+                }
+                67%, 100% {
+                    background-image: url(./img/Ping-Pong.jpeg);
+                    --text-description: "Ping Pong";
+                }
+            }
+            @keyframes fade {
+                0% {
+                    opacity: 0;
+                }
+                15%, 85% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        }
+    </style>
+    <title>Carrossel Tailwind</title>
 </head>
-<body>
-    
+<body class="grid place-items-center h-screen bg-[#0003]">
+    <div 
+        class="
+            relative w-4/5 h-4/5 shadow-[0_0_16px_#000] rounded-xl overflow-hidden
+            bg-center bg-cover
+            animate-[slider_12s_infinite] animate-[fade_4s]
+            after:content-[var(--text-description)] after:absolute after:w-full after:bottom-0
+            after:py-4 after:bg-[#0009] after:text-white after:text-center
+            after:text-2xl after:font-sans
+        "
+    ></div>
 </body>
 </html>
